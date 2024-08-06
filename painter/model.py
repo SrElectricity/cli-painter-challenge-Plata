@@ -33,6 +33,9 @@ class Triangle:
         self.point_2: Point = point_2
         self.point_3: Point = point_3
 
+    def area(self):
+        return ((self.point_1.x-self.point_2.y)+(self.point_2.x+self.point_3.y)+(self.point_3.x+self.point_1.y))
+
 
 
 
