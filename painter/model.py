@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import math
 import pickle
 
+
 class Point:
 
     def __init__(self, x: float, y: float):
@@ -34,7 +35,7 @@ class Triangle:
         self.point_3: Point = point_3
 
     def area(self):
-        return self.point_1.x*self.point_2.y+self.point_2.x*self.point_3.y+self.point_3.x*self.point_1.y-self.point_1.x*self.point_3.y-self.point_3.x*self.point_2.y-self.point_2.x*self.point_1.y
+        return abs((self.point_1.x*self.point_2.y)-(self.point_3.x*self.point_2.y)+(self.point_3.x*self.point_1.y)-(self.point_2.x*self.point_1.y)+(self.point_2.x*self.point_3.y)-(self.point_1.x*self.point_3.y))*1/2
 
     def draw(self):
         x = [self.point_1.x, self.point_2.x, self.point_3.x, self.point_1.x]
@@ -44,7 +45,7 @@ class Triangle:
         plt.show()
 
     def __str__(self):
-        return f"Triangle with vertices at ({self.point_1.x}, {self.point_1.y}, {self.point_2.x}, {self.point_2.y} and {self.point_3.x}, {self.point_3.y}"
+        return f"Triangle with vertices at ({self.point_1.x}, {self.point_1.y}), ({self.point_2.x}, {self.point_2.y}), and ({self.point_3.x}, {self.point_3.y})"
 
 
 class Rectangle:
@@ -54,7 +55,7 @@ class Rectangle:
         self.point_2: Point = point_2
 
     def area(self):
-        return self.point_1.x-self.point_2.x*self.point_1.y-self.point_2.y
+        return (self.point_1.x-self.point_2.x)*(self.point_1.y-self.point_2.y)
 
     def draw(self):
         x = [self.point_1.x, self.point_2.x, self.point_2.x, self.point_1.x, self.point_1.x]
@@ -64,7 +65,7 @@ class Rectangle:
         plt.show()
 
     def __str__(self):
-        return f"Rectangle with opposite vertices at ({self.point_1.x}, {self.point_2.y} and {self.point_2.x}, {self.point_2.y}"
+        return f"Rectangle with vertices at ({self.point_1.x}, {self.point_1.y}) and ({self.point_2.x}, {self.point_2.y})"
 
 
 class Painter:
